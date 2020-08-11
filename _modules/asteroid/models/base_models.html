@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>asteroid.models.base_models &mdash; asteroid 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://github.com/mpariente/asteroid_modules/asteroid/models/base_models.html"/>
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> asteroid
+          
+
+          
+            
+            <img src="../../../_static/asteroid_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Why Asteroid ?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../why_use_asteroid.html">Why use Asteroid ?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../filterbanks.html">Filterbank API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../filterbanks.html#filterbank-encoder-and-decoder">Filterbank, Encoder and Decoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../filterbanks.html#learnable-filterbanks">Learnable filterbanks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../filterbanks.html#module-asteroid.filterbanks.free_fb"><span class="hidden-section">Free</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../filterbanks.html#analytic-free"><span class="hidden-section">Analytic Free</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../filterbanks.html#parameterized-sinc"><span class="hidden-section">Parameterized Sinc</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../filterbanks.html#fixed-filterbanks">Fixed filterbanks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../filterbanks.html#module-asteroid.filterbanks.stft_fb"><span class="hidden-section">STFT</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../losses.html">Losses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../losses.html#module-asteroid.losses.pit_wrapper">Permutation invariant (PIT) training made easy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../losses.html#available-loss-functions">Available loss functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../losses.html#sdr"><span class="hidden-section">SDR</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../losses.html#mse"><span class="hidden-section">MSE</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../masknn.html">DNN building blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../masknn.html#mask-estimators">Mask estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../masknn.html#ready-to-use"><span class="hidden-section">Ready-to-use</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../masknn.html#layers"><span class="hidden-section">Layers</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../masknn.html#normalization-layers">Normalization layers</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Datasets and Recipes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../supported_datasets.html">List of supported datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../running_a_recipe.html">Running a recipe</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Extending asteroid</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../writing_a_new_loss.html">Writing a new loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../writing_a_new_filterbank.html">Writing a new filterbank</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">asteroid</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../asteroid.html">asteroid</a> &raquo;</li>
+        
+      <li>asteroid.models.base_models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for asteroid.models.base_models</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">torch_utils</span>
+<span class="kn">from</span> <span class="nn">..utils.hub_utils</span> <span class="kn">import</span> <span class="n">cached_download</span>
+
+
+<div class="viewcode-block" id="BaseTasNet"><a class="viewcode-back" href="../../../apidoc/asteroid.models.base_models.html#asteroid.models.base_models.BaseTasNet">[docs]</a><span class="k">class</span> <span class="nc">BaseTasNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Base class for encoder-masker-decoder separation models.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        encoder (Encoder): Encoder instance.</span>
+<span class="sd">        masker (nn.Module): masker network.</span>
+<span class="sd">        decoder (Decoder): Decoder instance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">encoder</span><span class="p">,</span> <span class="n">masker</span><span class="p">,</span> <span class="n">decoder</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">encoder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">masker</span> <span class="o">=</span> <span class="n">masker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="o">=</span> <span class="n">decoder</span>
+
+<div class="viewcode-block" id="BaseTasNet.forward"><a class="viewcode-back" href="../../../apidoc/asteroid.models.base_models.html#asteroid.models.base_models.BaseTasNet.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wav</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Enc/Mask/Dec model forward</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            wav (torch.Tensor): waveform tensor. 1D, 2D or 3D tensor, time last.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            torch.Tensor, of shape (batch, n_src, time) or (n_src, time).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Handle 1D, 2D or n-D inputs</span>
+        <span class="n">was_one_d</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">wav</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">was_one_d</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">wav</span> <span class="o">=</span> <span class="n">wav</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">wav</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">wav</span> <span class="o">=</span> <span class="n">wav</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Real forward</span>
+        <span class="n">tf_rep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span>
+        <span class="n">est_masks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">masker</span><span class="p">(</span><span class="n">tf_rep</span><span class="p">)</span>
+        <span class="n">masked_tf_rep</span> <span class="o">=</span> <span class="n">est_masks</span> <span class="o">*</span> <span class="n">tf_rep</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">out_wavs</span> <span class="o">=</span> <span class="n">torch_utils</span><span class="o">.</span><span class="n">pad_x_to_y</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">(</span><span class="n">masked_tf_rep</span><span class="p">),</span> <span class="n">wav</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">was_one_d</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">out_wavs</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out_wavs</span></div>
+
+<div class="viewcode-block" id="BaseTasNet.separate"><a class="viewcode-back" href="../../../apidoc/asteroid.models.base_models.html#asteroid.models.base_models.BaseTasNet.separate">[docs]</a>    <span class="k">def</span> <span class="nf">separate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wav</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Infer separated sources from input waveforms.</span>
+<span class="sd">        Also supports filenames.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            wav (Union[torch.Tensor, numpy.ndarray, str]): waveform array/tensor.</span>
+<span class="sd">                Shape: 1D, 2D or 3D tensor, time last.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Union[torch.Tensor, numpy.ndarray, None], the estimated sources.</span>
+<span class="sd">                (batch, n_src, time) or (n_src, time) w/o batch dim.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_separate</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseTasNet._separate"><a class="viewcode-back" href="../../../apidoc/asteroid.models.base_models.html#asteroid.models.base_models.BaseTasNet._separate">[docs]</a>    <span class="k">def</span> <span class="nf">_separate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wav</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Hidden separation method</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            wav (Union[torch.Tensor, numpy.ndarray, str]): waveform array/tensor.</span>
+<span class="sd">                Shape: 1D, 2D or 3D tensor, time last.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Union[torch.Tensor, numpy.ndarray, None], the estimated sources.</span>
+<span class="sd">                (batch, n_src, time) or (n_src, time) w/o batch dim.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Handle filename inputs</span>
+        <span class="n">was_file</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="kn">import</span> <span class="nn">soundfile</span> <span class="k">as</span> <span class="nn">sf</span>
+            <span class="n">was_file</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">wav</span>
+            <span class="n">wav</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+            <span class="n">wav</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span>
+        <span class="c1"># Handle numpy inputs</span>
+        <span class="n">was_numpy</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">was_numpy</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">wav</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span>
+        <span class="c1"># Handle device placement</span>
+        <span class="n">input_device</span> <span class="o">=</span> <span class="n">wav</span><span class="o">.</span><span class="n">device</span>
+        <span class="n">model_device</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span>
+        <span class="n">wav</span> <span class="o">=</span> <span class="n">wav</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">model_device</span><span class="p">)</span>
+        <span class="c1"># Forward</span>
+        <span class="n">out_wavs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span>
+        <span class="c1"># Back to input device (and numpy if necessary)</span>
+        <span class="n">out_wavs</span> <span class="o">=</span> <span class="n">out_wavs</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">input_device</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">was_numpy</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">out_wavs</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">was_file</span><span class="p">:</span>
+            <span class="c1"># Save wav files to filename_est1.wav etc...</span>
+            <span class="n">to_save</span> <span class="o">=</span> <span class="n">out_wavs</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">src_idx</span><span class="p">,</span> <span class="n">est_src</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">to_save</span><span class="p">):</span>
+                <span class="n">base</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">save_name</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="s1">&#39;_est</span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">src_idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">sf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">save_name</span><span class="p">,</span> <span class="n">est_src</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">return</span> <span class="n">out_wavs</span></div>
+
+<div class="viewcode-block" id="BaseTasNet.from_pretrained"><a class="viewcode-back" href="../../../apidoc/asteroid.models.base_models.html#asteroid.models.base_models.BaseTasNet.from_pretrained">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_pretrained</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pretrained_model_conf_or_path</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Instantiate separation model from a model config (file or dict).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            pretrained_model_conf_or_path (Union[dict, str]): model conf as</span>
+<span class="sd">                returned by `serialize`, or path to it. Need to contain</span>
+<span class="sd">                `model_args` and `state_dict` keys.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Instance of BaseTasNet</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError if the input config file doesn&#39;t contain the keys</span>
+<span class="sd">                `model_args` and `state_dict`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pretrained_model_conf_or_path</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">cached_model</span> <span class="o">=</span> <span class="n">cached_download</span><span class="p">(</span><span class="n">pretrained_model_conf_or_path</span><span class="p">)</span>
+            <span class="n">conf</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">cached_model</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">conf</span> <span class="o">=</span> <span class="n">pretrained_model_conf_or_path</span>
+        <span class="k">if</span> <span class="s1">&#39;model_args&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">conf</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Expected config dictionary to have field &#39;</span>
+                             <span class="s1">&#39;model_args`. Found only: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+        <span class="k">if</span> <span class="s1">&#39;state_dict&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">conf</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Expected config dictionary to have field &#39;</span>
+                             <span class="s1">&#39;state_dict`. Found only: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">conf</span><span class="p">[</span><span class="s1">&#39;model_args&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">conf</span><span class="p">[</span><span class="s1">&#39;state_dict&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">model</span></div>
+
+<div class="viewcode-block" id="BaseTasNet.serialize"><a class="viewcode-back" href="../../../apidoc/asteroid.models.base_models.html#asteroid.models.base_models.BaseTasNet.serialize">[docs]</a>    <span class="k">def</span> <span class="nf">serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Serialize model and output dictionary.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict, serialized model with keys `model_args` and `state_dict`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">asteroid_version</span>  <span class="c1"># Avoid circular imports</span>
+        <span class="kn">import</span> <span class="nn">pytorch_lightning</span> <span class="k">as</span> <span class="nn">pl</span>  <span class="c1"># Not used in torch.hub</span>
+        <span class="n">model_conf</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">fb_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">filterbank</span><span class="o">.</span><span class="n">get_config</span><span class="p">()</span>
+        <span class="n">masknet_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">masker</span><span class="o">.</span><span class="n">get_config</span><span class="p">()</span>
+        <span class="c1"># Assert both dict are disjoint</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">fb_config</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">masknet_config</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Filterbank and Mask network config share&quot;</span>
+                                 <span class="s2">&quot;common keys. Merging them is not safe.&quot;</span><span class="p">)</span>
+        <span class="c1"># Merge all args under model_args.</span>
+        <span class="n">model_conf</span><span class="p">[</span><span class="s1">&#39;model_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="n">model_conf</span><span class="p">[</span><span class="s1">&#39;model_args&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">fb_config</span><span class="p">,</span> <span class="o">**</span><span class="n">masknet_config</span><span class="p">}</span>
+        <span class="n">model_conf</span><span class="p">[</span><span class="s1">&#39;state_dict&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()</span>
+        <span class="c1"># Additional infos</span>
+        <span class="n">infos</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">infos</span><span class="p">[</span><span class="s1">&#39;software_versions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">torch_version</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span>
+            <span class="n">pytorch_lightning_version</span><span class="o">=</span><span class="n">pl</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span>
+            <span class="n">asteroid_version</span><span class="o">=</span><span class="n">asteroid_version</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">model_conf</span><span class="p">[</span><span class="s1">&#39;infos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">infos</span>
+        <span class="k">return</span> <span class="n">model_conf</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Oncoming
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

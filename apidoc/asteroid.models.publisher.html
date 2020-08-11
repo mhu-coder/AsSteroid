@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>asteroid.models.publisher module &mdash; asteroid 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://github.com/mpariente/asteroidapidoc/asteroid.models.publisher.html"/>
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> asteroid
+          
+
+          
+            
+            <img src="../_static/asteroid_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Why Asteroid ?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../why_use_asteroid.html">Why use Asteroid ?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../filterbanks.html">Filterbank API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filterbanks.html#filterbank-encoder-and-decoder">Filterbank, Encoder and Decoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filterbanks.html#learnable-filterbanks">Learnable filterbanks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../filterbanks.html#module-asteroid.filterbanks.free_fb"><span class="hidden-section">Free</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filterbanks.html#analytic-free"><span class="hidden-section">Analytic Free</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filterbanks.html#parameterized-sinc"><span class="hidden-section">Parameterized Sinc</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../filterbanks.html#fixed-filterbanks">Fixed filterbanks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../filterbanks.html#module-asteroid.filterbanks.stft_fb"><span class="hidden-section">STFT</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../losses.html">Losses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../losses.html#module-asteroid.losses.pit_wrapper">Permutation invariant (PIT) training made easy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../losses.html#available-loss-functions">Available loss functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../losses.html#sdr"><span class="hidden-section">SDR</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../losses.html#mse"><span class="hidden-section">MSE</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../masknn.html">DNN building blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../masknn.html#mask-estimators">Mask estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../masknn.html#ready-to-use"><span class="hidden-section">Ready-to-use</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masknn.html#layers"><span class="hidden-section">Layers</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../masknn.html#normalization-layers">Normalization layers</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Datasets and Recipes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../supported_datasets.html">List of supported datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_a_recipe.html">Running a recipe</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Extending asteroid</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../writing_a_new_loss.html">Writing a new loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing_a_new_filterbank.html">Writing a new filterbank</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">asteroid</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>asteroid.models.publisher module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/apidoc/asteroid.models.publisher.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-asteroid.models.publisher">
+<span id="asteroid-models-publisher-module"></span><h1>asteroid.models.publisher module<a class="headerlink" href="#module-asteroid.models.publisher" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="asteroid.models.publisher._populate_publishable">
+<code class="sig-prename descclassname">asteroid.models.publisher.</code><code class="sig-name descname">_populate_publishable</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">uploader=None</em>, <em class="sig-param">affiliation=None</em>, <em class="sig-param">git_username=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/models/publisher.html#_populate_publishable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.models.publisher._populate_publishable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate infos in publishable model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – Model to publish, with <cite>infos</cite> key, at least.</p></li>
+<li><p><strong>uploader</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Full name of the uploader (Ex: Manuel Pariente)</p></li>
+<li><p><strong>affiliation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – Affiliation (no accent).</p></li>
+<li><p><strong>git_username</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – GitHub username.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict (model), same as input <cite>model</cite></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If a <cite>git_username</cite> is not specified, we look for it somehow, or take
+the laptop username.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="asteroid.models.publisher.display_one_level_dict">
+<code class="sig-prename descclassname">asteroid.models.publisher.</code><code class="sig-name descname">display_one_level_dict</code><span class="sig-paren">(</span><em class="sig-param">dic</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/models/publisher.html#display_one_level_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.models.publisher.display_one_level_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single level dict to HTML
+:param dic:
+:type dic: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>str for HTML-encoded single level dic</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="asteroid.models.publisher.get_username">
+<code class="sig-prename descclassname">asteroid.models.publisher.</code><code class="sig-name descname">get_username</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/models/publisher.html#get_username"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.models.publisher.get_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get git of FS username for upload.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="asteroid.models.publisher.make_license_notice">
+<code class="sig-prename descclassname">asteroid.models.publisher.</code><code class="sig-name descname">make_license_notice</code><span class="sig-paren">(</span><em class="sig-param">model_name</em>, <em class="sig-param">licenses</em>, <em class="sig-param">uploader=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/models/publisher.html#make_license_notice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.models.publisher.make_license_notice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make license notice based on license dicts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Name of the model.</p></li>
+<li><p><strong>licenses</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>]</em>) – <p>List of dict with
+keys (<cite>title</cite>, <cite>title_link</cite>, <cite>author</cite>, <cite>author_link</cite>,</p>
+<blockquote>
+<div><p><cite>licence</cite>, <cite>licence_link</cite>).</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>uploader</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Name of the uploader such as “Manuel Pariente”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>str, the license note describing the model, it’s attribution,</dt><dd><p>the original licenses, what we license it under and the licensor.</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="asteroid.models.publisher.make_metadata_from_model">
+<code class="sig-prename descclassname">asteroid.models.publisher.</code><code class="sig-name descname">make_metadata_from_model</code><span class="sig-paren">(</span><em class="sig-param">model</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/models/publisher.html#make_metadata_from_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.models.publisher.make_metadata_from_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create Zenodo deposit metadata for a given publishable model.
+:param model: Dictionary with all infos needed to publish.</p>
+<blockquote>
+<div><p>More info to come.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict, the metadata to create the Zenodo deposit with.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>We remove the PESQ from the final results as a license is needed to
+use it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="asteroid.models.publisher.save_publishable">
+<code class="sig-prename descclassname">asteroid.models.publisher.</code><code class="sig-name descname">save_publishable</code><span class="sig-paren">(</span><em class="sig-param">publish_dir</em>, <em class="sig-param">model_dict</em>, <em class="sig-param">metrics=None</em>, <em class="sig-param">train_conf=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/models/publisher.html#save_publishable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.models.publisher.save_publishable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save models to prepare for publication / model sharing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>publish_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Path to the publishing directory.
+Usually under exp/exp_name/publish_dir</p></li>
+<li><p><strong>model_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – dict at least with keys <cite>model_args</cite>,
+<cite>state_dict</cite>,`dataset` or <cite>licenses</cite></p></li>
+<li><p><strong>metrics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – dict with evaluation metrics.</p></li>
+<li><p><strong>train_conf</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – Training configuration dict (from conf.yml).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict, same as <cite>model_dict</cite> with added fields.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>AssertionError when either model_args</strong><strong>, </strong><strong>state_dict</strong><strong>,</strong><strong>`dataset` or</strong> – <cite>licenses</cite> are not present is <cite>model_dict.keys()</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="asteroid.models.publisher.two_level_dict_html">
+<code class="sig-prename descclassname">asteroid.models.publisher.</code><code class="sig-name descname">two_level_dict_html</code><span class="sig-paren">(</span><em class="sig-param">dic</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/models/publisher.html#two_level_dict_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.models.publisher.two_level_dict_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Two-level dict to HTML.
+:param dic: two-level dict
+:type dic: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>str for HTML-encoded two level dic</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="asteroid.models.publisher.upload_publishable">
+<code class="sig-prename descclassname">asteroid.models.publisher.</code><code class="sig-name descname">upload_publishable</code><span class="sig-paren">(</span><em class="sig-param">publish_dir</em>, <em class="sig-param">uploader=None</em>, <em class="sig-param">affiliation=None</em>, <em class="sig-param">git_username=None</em>, <em class="sig-param">token=None</em>, <em class="sig-param">force_publish=False</em>, <em class="sig-param">use_sandbox=False</em>, <em class="sig-param">unit_test=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/models/publisher.html#upload_publishable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.models.publisher.upload_publishable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entry point to upload publishable model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>publish_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Path to the publishing directory.
+Usually under exp/exp_name/publish_dir</p></li>
+<li><p><strong>uploader</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Full name of the uploader (Ex: Manuel Pariente)</p></li>
+<li><p><strong>affiliation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – Affiliation (no accent).</p></li>
+<li><p><strong>git_username</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – GitHub username.</p></li>
+<li><p><strong>token</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Access token generated to upload depositions.</p></li>
+<li><p><strong>force_publish</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Whether to directly publish without
+asking confirmation before. Defaults to False.</p></li>
+<li><p><strong>use_sandbox</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Whether to use Zenodo’s sandbox instead of
+the official Zenodo.</p></li>
+<li><p><strong>unit_test</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – If True, we do not ask user input and do not publish.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="asteroid.models.publisher.zenodo_upload">
+<code class="sig-prename descclassname">asteroid.models.publisher.</code><code class="sig-name descname">zenodo_upload</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">token</em>, <em class="sig-param">model_path=None</em>, <em class="sig-param">use_sandbox=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/models/publisher.html#zenodo_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.models.publisher.zenodo_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create deposit and upload metadata + model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – </p></li>
+<li><p><strong>token</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Access token.</p></li>
+<li><p><strong>model_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Saved model path.</p></li>
+<li><p><strong>use_sandbox</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Whether to use Zenodo’s sandbox instead of
+the official Zenodo.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Zenodo (Zenodo instance with access token)
+int (deposit ID)</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If <cite>model_path</cite> is not specified, save the model in tmp.pth and
+remove it after upload.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Oncoming
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

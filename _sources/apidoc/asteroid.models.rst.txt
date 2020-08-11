@@ -1,0 +1,19 @@
+asteroid.models package
+=======================
+
+.. automodule:: asteroid.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+.. toctree::
+
+   asteroid.models.base_models
+   asteroid.models.conv_tasnet
+   asteroid.models.dprnn_tasnet
+   asteroid.models.publisher
+   asteroid.models.zenodo

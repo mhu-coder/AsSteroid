@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>asteroid.losses.pmsqe module &mdash; asteroid 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://github.com/mpariente/asteroidapidoc/asteroid.losses.pmsqe.html"/>
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> asteroid
+          
+
+          
+            
+            <img src="../_static/asteroid_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Why Asteroid ?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../why_use_asteroid.html">Why use Asteroid ?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../filterbanks.html">Filterbank API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filterbanks.html#filterbank-encoder-and-decoder">Filterbank, Encoder and Decoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filterbanks.html#learnable-filterbanks">Learnable filterbanks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../filterbanks.html#module-asteroid.filterbanks.free_fb"><span class="hidden-section">Free</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filterbanks.html#analytic-free"><span class="hidden-section">Analytic Free</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filterbanks.html#parameterized-sinc"><span class="hidden-section">Parameterized Sinc</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../filterbanks.html#fixed-filterbanks">Fixed filterbanks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../filterbanks.html#module-asteroid.filterbanks.stft_fb"><span class="hidden-section">STFT</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../losses.html">Losses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../losses.html#module-asteroid.losses.pit_wrapper">Permutation invariant (PIT) training made easy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../losses.html#available-loss-functions">Available loss functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../losses.html#sdr"><span class="hidden-section">SDR</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../losses.html#mse"><span class="hidden-section">MSE</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../masknn.html">DNN building blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../masknn.html#mask-estimators">Mask estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../masknn.html#ready-to-use"><span class="hidden-section">Ready-to-use</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masknn.html#layers"><span class="hidden-section">Layers</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../masknn.html#normalization-layers">Normalization layers</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Datasets and Recipes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../supported_datasets.html">List of supported datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_a_recipe.html">Running a recipe</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Extending asteroid</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../writing_a_new_loss.html">Writing a new loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing_a_new_filterbank.html">Writing a new filterbank</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">asteroid</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>asteroid.losses.pmsqe module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/apidoc/asteroid.losses.pmsqe.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-asteroid.losses.pmsqe">
+<span id="asteroid-losses-pmsqe-module"></span><h1>asteroid.losses.pmsqe module<a class="headerlink" href="#module-asteroid.losses.pmsqe" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE">
+<em class="property">class </em><code class="sig-prename descclassname">asteroid.losses.pmsqe.</code><code class="sig-name descname">SingleSrcPMSQE</code><span class="sig-paren">(</span><em class="sig-param">window_name='sqrt_hann'</em>, <em class="sig-param">window_weight=1.0</em>, <em class="sig-param">bark_eq=True</em>, <em class="sig-param">gain_eq=True</em>, <em class="sig-param">sample_rate=16000</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (1.7.0a0+016b80c ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.Module</span></code></a></p>
+<p>Computes the Perceptual Metric for Speech Quality Evaluation (PMSQE)
+as described in [1].
+This version is only designed for 16 kHz (512 length DFT).
+Adaptation to 8 kHz could be done by changing the parameters of the
+class (see Tensorflow implementation).
+The SLL, frequency and gain equalization are applied in each
+sequence independently.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Select the used window function for the correct
+factor to be applied. Defaults to sqrt hanning window.
+Among [‘rect’, ‘hann’, ‘sqrt_hann’, ‘hamming’, ‘flatTop’].</p></li>
+<li><p><strong>window_weight</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a><em>, </em><em>optional</em>) – Correction to the window factor
+applied.</p></li>
+<li><p><strong>bark_eq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to apply bark equalization.</p></li>
+<li><p><strong>gain_eq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to apply gain equalization.</p></li>
+<li><p><strong>sample_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sample rate of the input audio.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p>[1] J.M.Martin, A.M.Gomez, J.A.Gonzalez, A.M.Peinado ‘A Deep Learning
+Loss Function based on the Perceptual Evaluation of the
+Speech Quality’, IEEE Signal Processing Letters, 2018.
+Implemented by Juan M. Martin. Contact: <a class="reference external" href="mailto:mdjuamart&#37;&#52;&#48;ugr&#46;es">mdjuamart<span>&#64;</span>ugr<span>&#46;</span>es</a>
+Copyright 2019: University of Granada, Signal Processing, Multimedia
+Transmission and Speech/Audio Technologies (SigMAT) Group.</p>
+<p class="rubric">Notes</p>
+<p>Inspired on the Perceptual Evaluation of the Speech Quality (PESQ)
+algorithm, this function consists of two regularization factors :
+the symmetrical and asymmetrical distortion in the loudness domain.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">asteroid.filterbanks</span> <span class="kn">import</span> <span class="n">STFTFB</span><span class="p">,</span> <span class="n">Encoder</span><span class="p">,</span> <span class="n">transforms</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">asteroid.losses</span> <span class="kn">import</span> <span class="n">PITLossWrapper</span><span class="p">,</span> <span class="n">SingleSrcPMSQE</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">Encoder</span><span class="p">(</span><span class="n">STFTFB</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">n_filters</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">256</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Usage by itself</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ref</span><span class="p">,</span> <span class="n">est</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">16000</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">16000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ref_spec</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">take_mag</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">ref</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">est_spec</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">take_mag</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">est</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loss_func</span> <span class="o">=</span> <span class="n">SingleSrcPMSQE</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loss_value</span> <span class="o">=</span> <span class="n">loss_func</span><span class="p">(</span><span class="n">est_spec</span><span class="p">,</span> <span class="n">ref_spec</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Usage with PITLossWrapper</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loss_func</span> <span class="o">=</span> <span class="n">PITLossWrapper</span><span class="p">(</span><span class="n">SingleSrcPMSQE</span><span class="p">(),</span> <span class="n">pit_from</span><span class="o">=</span><span class="s1">&#39;pw_pt&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ref</span><span class="p">,</span> <span class="n">est</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16000</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ref_spec</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">take_mag</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">ref</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">est_spec</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">take_mag</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">est</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loss_value</span> <span class="o">=</span> <span class="n">loss_func</span><span class="p">(</span><span class="n">ref_spec</span><span class="p">,</span> <span class="n">est_spec</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.bark_computation">
+<code class="sig-name descname">bark_computation</code><span class="sig-paren">(</span><em class="sig-param">spectra</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.bark_computation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.bark_computation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.bark_freq_equalization">
+<code class="sig-name descname">bark_freq_equalization</code><span class="sig-paren">(</span><em class="sig-param">ref_bark_spectra</em>, <em class="sig-param">deg_bark_spectra</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.bark_freq_equalization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.bark_freq_equalization" title="Permalink to this definition">¶</a></dt>
+<dd><p>This version is applied in the degraded directly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.bark_gain_equalization">
+<code class="sig-name descname">bark_gain_equalization</code><span class="sig-paren">(</span><em class="sig-param">ref_bark_spectra</em>, <em class="sig-param">deg_bark_spectra</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.bark_gain_equalization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.bark_gain_equalization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.compute_audible_power">
+<code class="sig-name descname">compute_audible_power</code><span class="sig-paren">(</span><em class="sig-param">bark_spectra</em>, <em class="sig-param">factor=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.compute_audible_power"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.compute_audible_power" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.compute_distortion_tensors">
+<code class="sig-name descname">compute_distortion_tensors</code><span class="sig-paren">(</span><em class="sig-param">ref_bark_spec</em>, <em class="sig-param">deg_bark_spec</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.compute_distortion_tensors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.compute_distortion_tensors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param">est_targets</em>, <em class="sig-param">targets</em>, <em class="sig-param">pad_mask=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.forward" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Args</dt><dd><dl class="simple">
+<dt>est_targets (torch.Tensor): Dimensions (B, T, F).</dt><dd><p>Padded degraded power spectrum in time-frequency domain.</p>
+</dd>
+<dt>targets (torch.Tensor): Dimensions (B, T, F).</dt><dd><p>Zero-Padded reference power spectrum in time-frequency domain.</p>
+</dd>
+<dt>pad_mask (torch.Tensor, optional):  Dimensions (B, T, 1). Mask</dt><dd><p>to indicate the padding frames. Defaults to all ones.</p>
+</dd>
+</dl>
+</dd>
+<dt>Dimensions</dt><dd><p>B: Number of sequences in the batch.
+T: Number of time frames.
+F: Number of frequency bins.</p>
+</dd>
+<dt>Returns</dt><dd><p>torch.tensor of shape (B, ), wD + 0.309 * wDA</p>
+</dd>
+<dt>Notes</dt><dd><p>Dimensions (B, F, T) are also supported by SingleSrcPMSQE but are
+less efficient because input tensors are transposed (not inplace).</p>
+</dd>
+</dl>
+<p>Examples</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.get_correction_factor">
+<em class="property">static </em><code class="sig-name descname">get_correction_factor</code><span class="sig-paren">(</span><em class="sig-param">window_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.get_correction_factor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.get_correction_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the power correction factor depending on the window.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.loudness_computation">
+<code class="sig-name descname">loudness_computation</code><span class="sig-paren">(</span><em class="sig-param">bark_spectra</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.loudness_computation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.loudness_computation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.magnitude_at_sll">
+<code class="sig-name descname">magnitude_at_sll</code><span class="sig-paren">(</span><em class="sig-param">spectra</em>, <em class="sig-param">pad_mask</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.magnitude_at_sll"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.magnitude_at_sll" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.per_frame_distortion">
+<code class="sig-name descname">per_frame_distortion</code><span class="sig-paren">(</span><em class="sig-param">sym_d</em>, <em class="sig-param">asym_d</em>, <em class="sig-param">total_power_ref</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.per_frame_distortion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.per_frame_distortion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.populate_constants">
+<code class="sig-name descname">populate_constants</code><span class="sig-paren">(</span><em class="sig-param">sample_rate</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.populate_constants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.populate_constants" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.register_16k_constants">
+<code class="sig-name descname">register_16k_constants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.register_16k_constants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.register_16k_constants" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="asteroid.losses.pmsqe.SingleSrcPMSQE.register_8k_constants">
+<code class="sig-name descname">register_8k_constants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/losses/pmsqe.html#SingleSrcPMSQE.register_8k_constants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.losses.pmsqe.SingleSrcPMSQE.register_8k_constants" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Oncoming
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

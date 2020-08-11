@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>asteroid.data.musdb18_dataset &mdash; asteroid 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://github.com/mpariente/asteroid_modules/asteroid/data/musdb18_dataset.html"/>
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> asteroid
+          
+
+          
+            
+            <img src="../../../_static/asteroid_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Why Asteroid ?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../why_use_asteroid.html">Why use Asteroid ?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../filterbanks.html">Filterbank API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../filterbanks.html#filterbank-encoder-and-decoder">Filterbank, Encoder and Decoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../filterbanks.html#learnable-filterbanks">Learnable filterbanks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../filterbanks.html#module-asteroid.filterbanks.free_fb"><span class="hidden-section">Free</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../filterbanks.html#analytic-free"><span class="hidden-section">Analytic Free</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../filterbanks.html#parameterized-sinc"><span class="hidden-section">Parameterized Sinc</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../filterbanks.html#fixed-filterbanks">Fixed filterbanks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../filterbanks.html#module-asteroid.filterbanks.stft_fb"><span class="hidden-section">STFT</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../losses.html">Losses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../losses.html#module-asteroid.losses.pit_wrapper">Permutation invariant (PIT) training made easy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../losses.html#available-loss-functions">Available loss functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../losses.html#sdr"><span class="hidden-section">SDR</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../losses.html#mse"><span class="hidden-section">MSE</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../masknn.html">DNN building blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../masknn.html#mask-estimators">Mask estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../masknn.html#ready-to-use"><span class="hidden-section">Ready-to-use</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../masknn.html#layers"><span class="hidden-section">Layers</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../masknn.html#normalization-layers">Normalization layers</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Datasets and Recipes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../supported_datasets.html">List of supported datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../running_a_recipe.html">Running a recipe</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Extending asteroid</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../writing_a_new_loss.html">Writing a new loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../writing_a_new_filterbank.html">Writing a new filterbank</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">asteroid</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../asteroid.html">asteroid</a> &raquo;</li>
+        
+      <li>asteroid.data.musdb18_dataset</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for asteroid.data.musdb18_dataset</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">torch.utils.data</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">tqdm</span>
+<span class="kn">import</span> <span class="nn">soundfile</span> <span class="k">as</span> <span class="nn">sf</span>
+
+
+<div class="viewcode-block" id="MUSDB18Dataset"><a class="viewcode-back" href="../../../apidoc/asteroid.data.musdb18_dataset.html#asteroid.data.musdb18_dataset.MUSDB18Dataset">[docs]</a><span class="k">class</span> <span class="nc">MUSDB18Dataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;MUSDB18 music separation dataset</span>
+
+<span class="sd">    The dataset consists of 150 full lengths music tracks (~10h duration) of</span>
+<span class="sd">    different genres along with their isolated stems:</span>
+<span class="sd">        `drums`, `bass`, `vocals` and `others`.</span>
+
+<span class="sd">    Out-of-the-box, asteroid does only support MUSDB18-HQ which comes as</span>
+<span class="sd">    uncompressed WAV files. To use the MUSDB18, please convert it to WAV first:</span>
+
+<span class="sd">    MUSDB18 HQ: https://zenodo.org/record/3338373   </span>
+<span class="sd">    MUSDB18     https://zenodo.org/record/1117372 </span>
+
+<span class="sd">    Note: The datasets are hosted on Zenodo and require that users</span>
+<span class="sd">          request access, since the tracks can only be used for</span>
+<span class="sd">          academic purposes. We manually check this requests.</span>
+
+<span class="sd">    This dataset asssumes music tracks in (sub)folders where each folder</span>
+<span class="sd">    has a fixed number of sources (defaults to 4). For each track, a list</span>
+<span class="sd">    of `sources` and a common `suffix` can be specified.</span>
+<span class="sd">    A linear mix is performed on the fly by summing up the sources</span>
+
+<span class="sd">    Due to the fact that all tracks comprise the exact same set</span>
+<span class="sd">    of sources, random track mixing can be used can be used,</span>
+<span class="sd">    where sources from different tracks are mixed together.</span>
+
+<span class="sd">    Folder Structure:</span>
+<span class="sd">        train/1/vocals.wav ---------------\</span>
+<span class="sd">        train/1/drums.wav -----------------+--&gt; input (mix), output[target]</span>
+<span class="sd">        train/1/bass.wav ------------------|</span>
+<span class="sd">        train/1/other.wav ----------------/</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        root (str): Root path of dataset</span>
+<span class="sd">        sources (:obj:`list` of :obj:`str`, optional): List of source names</span>
+<span class="sd">            that composes the mixture.</span>
+<span class="sd">            Defaults to MUSDB18 4 stem scenario: `vocals`, `drums`, `bass`, `other`.</span>
+<span class="sd">        targets (list or None, optional): List of source names to be used as</span>
+<span class="sd">            targets. If None, a dict with the 4 stems is returned.</span>
+<span class="sd">             If e.g [`vocals`, `drums`], a tensor with stacked `vocals` and</span>
+<span class="sd">             `drums` is returned instead of a dict. Defaults to None.</span>
+<span class="sd">        suffix (str, optional): Filename suffix, defaults to `.wav`.</span>
+<span class="sd">        split (str, optional): Dataset subfolder, defaults to `train`.</span>
+<span class="sd">        subset (:obj:`list` of :obj:`str`, optional): Selects a specific of</span>
+<span class="sd">            list of tracks to be loaded, defaults to `None` (loads all tracks).</span>
+<span class="sd">        segment (float, optional): Duration of segments in seconds,</span>
+<span class="sd">            defaults to ``None`` which loads the full-length audio tracks.</span>
+<span class="sd">        samples_per_track (int, optional):</span>
+<span class="sd">            Number of samples yielded from each track, can be used to increase </span>
+<span class="sd">            dataset size, defaults to `1`.</span>
+<span class="sd">        random_segments (boolean, optional): Enables random offset for track segments.</span>
+<span class="sd">        random_track_mix boolean: enables mixing of random sources from</span>
+<span class="sd">            different tracks to assemble mix.</span>
+<span class="sd">        source_augmentations (:obj:`list` of `obj`:`callable`):</span>
+<span class="sd">            list of augmentation function names,</span>
+<span class="sd">            defaults to no-op augmentations (input = output)</span>
+<span class="sd">        sample_rate (int, optional): Samplerate of files in dataset.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        root (str): Root path of dataset</span>
+<span class="sd">        sources (:obj:`list` of :obj:`str`, optional): List of source names.</span>
+<span class="sd">            Defaults to MUSDB18 4 stem scenario: `vocals`, `drums`, `bass`, `other`.</span>
+<span class="sd">        suffix (str, optional): Filename suffix, defaults to `.wav`.</span>
+<span class="sd">        split (str, optional): Dataset subfolder, defaults to `train`.</span>
+<span class="sd">        subset (:obj:`list` of :obj:`str`, optional): Selects a specific of</span>
+<span class="sd">            list of tracks to be loaded, defaults to `None` (loads all tracks).</span>
+<span class="sd">        segment (float, optional): Duration of segments in seconds,</span>
+<span class="sd">            defaults to ``None`` which loads the full-length audio tracks.</span>
+<span class="sd">        samples_per_track (int, optional):</span>
+<span class="sd">            Number of samples yielded from each track, can be used to increase</span>
+<span class="sd">            dataset size, defaults to `1`.</span>
+<span class="sd">        random_segments (boolean, optional): Enables random offset for track segments.</span>
+<span class="sd">        random_track_mix boolean: enables mixing of random sources from</span>
+<span class="sd">            different tracks to assemble mix.</span>
+<span class="sd">        source_augmentations (:obj:`list` of `obj`:`callable`):</span>
+<span class="sd">            list of augmentation function names,</span>
+<span class="sd">            defaults to no-op augmentations (input = output)</span>
+<span class="sd">        sample_rate (int, optional): Samplerate of files in dataset.</span>
+<span class="sd">        tracks (:obj:`list` of :obj:`Dict`): List of track metadata</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dataset_name</span> <span class="o">=</span> <span class="s1">&#39;MUSDB18&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">root</span><span class="p">,</span>
+                 <span class="n">sources</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;vocals&#39;</span><span class="p">,</span> <span class="s1">&#39;bass&#39;</span><span class="p">,</span> <span class="s1">&#39;drums&#39;</span><span class="p">,</span> <span class="s1">&#39;other&#39;</span><span class="p">],</span>
+                 <span class="n">targets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">suffix</span><span class="o">=</span><span class="s1">&#39;.wav&#39;</span><span class="p">,</span>
+                 <span class="n">split</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">,</span>
+                 <span class="n">subset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">segment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">samples_per_track</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">random_segments</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">random_track_mix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">source_augmentations</span><span class="o">=</span><span class="k">lambda</span> <span class="n">audio</span><span class="p">:</span> <span class="n">audio</span><span class="p">,</span>
+                 <span class="n">sample_rate</span><span class="o">=</span><span class="mi">44100</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">root</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">split</span> <span class="o">=</span> <span class="n">split</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span> <span class="o">=</span> <span class="n">sample_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">segment</span> <span class="o">=</span> <span class="n">segment</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_track_mix</span> <span class="o">=</span> <span class="n">random_track_mix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_segments</span> <span class="o">=</span> <span class="n">random_segments</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source_augmentations</span> <span class="o">=</span> <span class="n">source_augmentations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sources</span> <span class="o">=</span> <span class="n">sources</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">targets</span> <span class="o">=</span> <span class="n">targets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suffix</span> <span class="o">=</span> <span class="n">suffix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subset</span> <span class="o">=</span> <span class="n">subset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">samples_per_track</span> <span class="o">=</span> <span class="n">samples_per_track</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_tracks</span><span class="p">())</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracks</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;No tracks found.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="c1"># assemble the mixture of target and interferers</span>
+        <span class="n">audio_sources</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># get track_id</span>
+        <span class="n">track_id</span> <span class="o">=</span> <span class="n">index</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">samples_per_track</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_segments</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span>
+                <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracks</span><span class="p">[</span><span class="n">track_id</span><span class="p">][</span><span class="s1">&#39;min_duration&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># load sources</span>
+        <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sources</span><span class="p">:</span>
+            <span class="c1"># optionally select a random track for each source</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_track_mix</span><span class="p">:</span>
+                <span class="c1"># load a different track</span>
+                <span class="n">track_id</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tracks</span><span class="p">)))</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_segments</span><span class="p">:</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span>
+                        <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracks</span><span class="p">[</span><span class="n">track_id</span><span class="p">][</span><span class="s1">&#39;min_duration&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment</span>
+                    <span class="p">)</span>
+
+            <span class="c1"># loads the full track duration</span>
+            <span class="n">start_sample</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">start</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">)</span>
+            <span class="c1"># check if dur is none</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment</span><span class="p">:</span>
+                <span class="c1"># stop in soundfile is calc in samples, not seconds</span>
+                <span class="n">stop_sample</span> <span class="o">=</span> <span class="n">start_sample</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">segment</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># set to None for reading complete file</span>
+                <span class="n">stop_sample</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="c1"># load actual audio</span>
+            <span class="n">audio</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span>
+                <span class="n">Path</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">tracks</span><span class="p">[</span><span class="n">track_id</span><span class="p">][</span><span class="s1">&#39;path&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">source</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">suffix</span><span class="p">),</span>
+                <span class="n">always_2d</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">start</span><span class="o">=</span><span class="n">start_sample</span><span class="p">,</span>
+                <span class="n">stop</span><span class="o">=</span><span class="n">stop_sample</span>
+            <span class="p">)</span>
+            <span class="c1"># convert to torch tensor</span>
+            <span class="n">audio</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">audio</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+            <span class="c1"># apply source-wise augmentations</span>
+            <span class="n">audio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_augmentations</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span>
+            <span class="n">audio_sources</span><span class="p">[</span><span class="n">source</span><span class="p">]</span> <span class="o">=</span> <span class="n">audio</span>
+
+        <span class="c1"># apply linear mix over source index=0</span>
+        <span class="n">audio_mix</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">audio_sources</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">targets</span><span class="p">:</span>
+            <span class="n">audio_sources</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span>
+                <span class="n">wav</span> <span class="k">for</span> <span class="n">src</span><span class="p">,</span> <span class="n">wav</span> <span class="ow">in</span> <span class="n">audio_sources</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">src</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">targets</span>
+            <span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">audio_mix</span><span class="p">,</span> <span class="n">audio_sources</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tracks</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">samples_per_track</span>
+
+<div class="viewcode-block" id="MUSDB18Dataset.get_tracks"><a class="viewcode-back" href="../../../apidoc/asteroid.data.musdb18_dataset.html#asteroid.data.musdb18_dataset.MUSDB18Dataset.get_tracks">[docs]</a>    <span class="k">def</span> <span class="nf">get_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Loads input and output tracks&quot;&quot;&quot;</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">split</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">track_path</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="n">track_path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subset</span> <span class="ow">and</span> <span class="n">track_path</span><span class="o">.</span><span class="n">stem</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subset</span><span class="p">:</span>
+                    <span class="c1"># skip this track</span>
+                    <span class="k">continue</span>
+
+                <span class="n">source_paths</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">track_path</span> <span class="o">/</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">suffix</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sources</span>
+                <span class="p">]</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">for</span> <span class="n">sp</span> <span class="ow">in</span> <span class="n">source_paths</span><span class="p">):</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="s2">&quot;Exclude track due to non-existing source&quot;</span><span class="p">,</span>
+                        <span class="n">track_path</span>
+                    <span class="p">)</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># get metadata</span>
+                <span class="n">infos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="n">source_paths</span><span class="p">))</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span>
+                    <span class="n">i</span><span class="o">.</span><span class="n">samplerate</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">infos</span>
+                <span class="p">):</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="s2">&quot;Exclude track due to different sample rate &quot;</span><span class="p">,</span>
+                        <span class="n">track_path</span>
+                    <span class="p">)</span>
+                    <span class="k">continue</span>
+
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="c1"># get minimum duration of track</span>
+                    <span class="n">min_duration</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">duration</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">infos</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">min_duration</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment</span><span class="p">:</span>
+                        <span class="k">yield</span><span class="p">({</span>
+                            <span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="n">track_path</span><span class="p">,</span>
+                            <span class="s1">&#39;min_duration&#39;</span><span class="p">:</span> <span class="n">min_duration</span>
+                        <span class="p">})</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">yield</span><span class="p">({</span>
+                        <span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="n">track_path</span><span class="p">,</span>
+                        <span class="s1">&#39;min_duration&#39;</span><span class="p">:</span> <span class="kc">None</span>
+                    <span class="p">})</span></div>
+
+<div class="viewcode-block" id="MUSDB18Dataset.get_infos"><a class="viewcode-back" href="../../../apidoc/asteroid.data.musdb18_dataset.html#asteroid.data.musdb18_dataset.MUSDB18Dataset.get_infos">[docs]</a>    <span class="k">def</span> <span class="nf">get_infos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Get dataset infos (for publishing models).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict, dataset infos with keys `dataset`, `task` and `licences`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">infos</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">infos</span><span class="p">[</span><span class="s1">&#39;dataset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span>
+        <span class="n">infos</span><span class="p">[</span><span class="s1">&#39;task&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;enhancement&#39;</span>
+        <span class="n">infos</span><span class="p">[</span><span class="s1">&#39;licenses&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">musdb_license</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">infos</span></div></div>
+
+
+<span class="n">musdb_license</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Oncoming
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

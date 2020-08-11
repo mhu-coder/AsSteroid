@@ -1,0 +1,15 @@
+asteroid.dsp package
+====================
+
+.. automodule:: asteroid.dsp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+.. toctree::
+
+   asteroid.dsp.consistency

@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>asteroid.models.dprnn_tasnet &mdash; asteroid 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://github.com/mpariente/asteroid_modules/asteroid/models/dprnn_tasnet.html"/>
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> asteroid
+          
+
+          
+            
+            <img src="../../../_static/asteroid_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Why Asteroid ?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../why_use_asteroid.html">Why use Asteroid ?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../filterbanks.html">Filterbank API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../filterbanks.html#filterbank-encoder-and-decoder">Filterbank, Encoder and Decoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../filterbanks.html#learnable-filterbanks">Learnable filterbanks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../filterbanks.html#module-asteroid.filterbanks.free_fb"><span class="hidden-section">Free</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../filterbanks.html#analytic-free"><span class="hidden-section">Analytic Free</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../filterbanks.html#parameterized-sinc"><span class="hidden-section">Parameterized Sinc</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../filterbanks.html#fixed-filterbanks">Fixed filterbanks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../filterbanks.html#module-asteroid.filterbanks.stft_fb"><span class="hidden-section">STFT</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../losses.html">Losses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../losses.html#module-asteroid.losses.pit_wrapper">Permutation invariant (PIT) training made easy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../losses.html#available-loss-functions">Available loss functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../losses.html#sdr"><span class="hidden-section">SDR</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../losses.html#mse"><span class="hidden-section">MSE</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../masknn.html">DNN building blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../masknn.html#mask-estimators">Mask estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../masknn.html#ready-to-use"><span class="hidden-section">Ready-to-use</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../masknn.html#layers"><span class="hidden-section">Layers</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../masknn.html#normalization-layers">Normalization layers</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Datasets and Recipes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../supported_datasets.html">List of supported datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../running_a_recipe.html">Running a recipe</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Extending asteroid</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../writing_a_new_loss.html">Writing a new loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../writing_a_new_filterbank.html">Writing a new filterbank</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">asteroid</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../asteroid.html">asteroid</a> &raquo;</li>
+        
+      <li>asteroid.models.dprnn_tasnet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for asteroid.models.dprnn_tasnet</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">..filterbanks</span> <span class="kn">import</span> <span class="n">make_enc_dec</span>
+<span class="kn">from</span> <span class="nn">..masknn</span> <span class="kn">import</span> <span class="n">DPRNN</span>
+<span class="kn">from</span> <span class="nn">.base_models</span> <span class="kn">import</span> <span class="n">BaseTasNet</span>
+
+
+<div class="viewcode-block" id="DPRNNTasNet"><a class="viewcode-back" href="../../../apidoc/asteroid.models.dprnn_tasnet.html#asteroid.models.dprnn_tasnet.DPRNNTasNet">[docs]</a><span class="k">class</span> <span class="nc">DPRNNTasNet</span><span class="p">(</span><span class="n">BaseTasNet</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; DPRNN separation model, as described in [1].</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        n_src (int): Number of masks to estimate.</span>
+<span class="sd">        out_chan  (int or None): Number of bins in the estimated masks.</span>
+<span class="sd">            Defaults to `in_chan`.</span>
+<span class="sd">        bn_chan (int): Number of channels after the bottleneck.</span>
+<span class="sd">            Defaults to 128.</span>
+<span class="sd">        hid_size (int): Number of neurons in the RNNs cell state.</span>
+<span class="sd">            Defaults to 128.</span>
+<span class="sd">        chunk_size (int): window size of overlap and add processing.</span>
+<span class="sd">            Defaults to 100.</span>
+<span class="sd">        hop_size (int or None): hop size (stride) of overlap and add processing.</span>
+<span class="sd">            Default to `chunk_size // 2` (50% overlap).</span>
+<span class="sd">        n_repeats (int): Number of repeats. Defaults to 6.</span>
+<span class="sd">        norm_type (str, optional): Type of normalization to use. To choose from</span>
+
+<span class="sd">            - ``&#39;gLN&#39;``: global Layernorm</span>
+<span class="sd">            - ``&#39;cLN&#39;``: channelwise Layernorm</span>
+<span class="sd">        mask_act (str, optional): Which non-linear function to generate mask.</span>
+<span class="sd">        bidirectional (bool, optional): True for bidirectional Inter-Chunk RNN</span>
+<span class="sd">            (Intra-Chunk is always bidirectional).</span>
+<span class="sd">        rnn_type (str, optional): Type of RNN used. Choose between ``&#39;RNN&#39;``,</span>
+<span class="sd">            ``&#39;LSTM&#39;`` and ``&#39;GRU&#39;``.</span>
+<span class="sd">        num_layers (int, optional): Number of layers in each RNN.</span>
+<span class="sd">        dropout (float, optional): Dropout ratio, must be in [0,1].</span>
+<span class="sd">        in_chan (int, optional): Number of input channels, should be equal to</span>
+<span class="sd">            n_filters.</span>
+<span class="sd">        fb_name (str, className): Filterbank family from which to make encoder</span>
+<span class="sd">            and decoder. To choose among [``&#39;free&#39;``, ``&#39;analytic_free&#39;``,</span>
+<span class="sd">            ``&#39;param_sinc&#39;``, ``&#39;stft&#39;``].</span>
+<span class="sd">        n_filters (int): Number of filters / Input dimension of the masker net.</span>
+<span class="sd">        kernel_size (int): Length of the filters.</span>
+<span class="sd">        stride (int, optional): Stride of the convolution.</span>
+<span class="sd">            If None (default), set to ``kernel_size // 2``.</span>
+<span class="sd">        **fb_kwargs (dict): Additional kwards to pass to the filterbank</span>
+<span class="sd">            creation.</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        [1] &quot;Dual-path RNN: efficient long sequence modeling for</span>
+<span class="sd">            time-domain single-channel speech separation&quot;, Yi Luo, Zhuo Chen</span>
+<span class="sd">            and Takuya Yoshioka. https://arxiv.org/abs/1910.06379</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_src</span><span class="p">,</span> <span class="n">out_chan</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bn_chan</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">hid_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+                 <span class="n">chunk_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">hop_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">norm_type</span><span class="o">=</span><span class="s2">&quot;gLN&quot;</span><span class="p">,</span>
+                 <span class="n">mask_act</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">bidirectional</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rnn_type</span><span class="o">=</span><span class="s2">&quot;LSTM&quot;</span><span class="p">,</span>
+                 <span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">in_chan</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fb_name</span><span class="o">=</span><span class="s1">&#39;free&#39;</span><span class="p">,</span>
+                 <span class="n">kernel_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">n_filters</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="o">**</span><span class="n">fb_kwargs</span><span class="p">):</span>
+        <span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span> <span class="o">=</span> <span class="n">make_enc_dec</span><span class="p">(</span>
+            <span class="n">fb_name</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="n">kernel_size</span><span class="p">,</span> <span class="n">n_filters</span><span class="o">=</span><span class="n">n_filters</span><span class="p">,</span>
+            <span class="n">stride</span><span class="o">=</span><span class="n">stride</span><span class="p">,</span> <span class="o">**</span><span class="n">fb_kwargs</span>
+        <span class="p">)</span>
+        <span class="n">n_feats</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">n_feats_out</span>
+        <span class="k">if</span> <span class="n">in_chan</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">in_chan</span> <span class="o">==</span> <span class="n">n_feats</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;Number of filterbank output channels&#39;</span>
+                                        <span class="s1">&#39; and number of input channels should &#39;</span>
+                                        <span class="s1">&#39;be the same. Received &#39;</span>
+                                        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">n_feats</span><span class="si">}</span><span class="s1"> and </span><span class="si">{</span><span class="n">in_chan</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="c1"># Update in_chan</span>
+        <span class="n">masker</span> <span class="o">=</span> <span class="n">DPRNN</span><span class="p">(</span>
+            <span class="n">n_feats</span><span class="p">,</span> <span class="n">n_src</span><span class="p">,</span> <span class="n">out_chan</span><span class="o">=</span><span class="n">out_chan</span><span class="p">,</span> <span class="n">bn_chan</span><span class="o">=</span><span class="n">bn_chan</span><span class="p">,</span>
+            <span class="n">hid_size</span><span class="o">=</span><span class="n">hid_size</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">=</span><span class="n">chunk_size</span><span class="p">,</span> <span class="n">hop_size</span><span class="o">=</span><span class="n">hop_size</span><span class="p">,</span>
+            <span class="n">n_repeats</span><span class="o">=</span><span class="n">n_repeats</span><span class="p">,</span> <span class="n">norm_type</span><span class="o">=</span><span class="n">norm_type</span><span class="p">,</span> <span class="n">mask_act</span><span class="o">=</span><span class="n">mask_act</span><span class="p">,</span>
+            <span class="n">bidirectional</span><span class="o">=</span><span class="n">bidirectional</span><span class="p">,</span> <span class="n">rnn_type</span><span class="o">=</span><span class="n">rnn_type</span><span class="p">,</span>
+            <span class="n">num_layers</span><span class="o">=</span><span class="n">num_layers</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">dropout</span>
+        <span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">masker</span><span class="p">,</span> <span class="n">decoder</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Oncoming
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

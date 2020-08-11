@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>asteroid.filterbanks.griffin_lim module &mdash; asteroid 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://github.com/mpariente/asteroidapidoc/asteroid.filterbanks.griffin_lim.html"/>
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> asteroid
+          
+
+          
+            
+            <img src="../_static/asteroid_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Why Asteroid ?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../why_use_asteroid.html">Why use Asteroid ?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../filterbanks.html">Filterbank API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filterbanks.html#filterbank-encoder-and-decoder">Filterbank, Encoder and Decoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filterbanks.html#learnable-filterbanks">Learnable filterbanks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../filterbanks.html#module-asteroid.filterbanks.free_fb"><span class="hidden-section">Free</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filterbanks.html#analytic-free"><span class="hidden-section">Analytic Free</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filterbanks.html#parameterized-sinc"><span class="hidden-section">Parameterized Sinc</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../filterbanks.html#fixed-filterbanks">Fixed filterbanks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../filterbanks.html#module-asteroid.filterbanks.stft_fb"><span class="hidden-section">STFT</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../losses.html">Losses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../losses.html#module-asteroid.losses.pit_wrapper">Permutation invariant (PIT) training made easy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../losses.html#available-loss-functions">Available loss functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../losses.html#sdr"><span class="hidden-section">SDR</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../losses.html#mse"><span class="hidden-section">MSE</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../masknn.html">DNN building blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../masknn.html#mask-estimators">Mask estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../masknn.html#ready-to-use"><span class="hidden-section">Ready-to-use</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masknn.html#layers"><span class="hidden-section">Layers</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../masknn.html#normalization-layers">Normalization layers</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Datasets and Recipes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../supported_datasets.html">List of supported datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_a_recipe.html">Running a recipe</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Extending asteroid</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../writing_a_new_loss.html">Writing a new loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing_a_new_filterbank.html">Writing a new filterbank</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">asteroid</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>asteroid.filterbanks.griffin_lim module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/apidoc/asteroid.filterbanks.griffin_lim.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-asteroid.filterbanks.griffin_lim">
+<span id="asteroid-filterbanks-griffin-lim-module"></span><h1>asteroid.filterbanks.griffin_lim module<a class="headerlink" href="#module-asteroid.filterbanks.griffin_lim" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="asteroid.filterbanks.griffin_lim.griffin_lim">
+<code class="sig-prename descclassname">asteroid.filterbanks.griffin_lim.</code><code class="sig-name descname">griffin_lim</code><span class="sig-paren">(</span><em class="sig-param">mag_specgram</em>, <em class="sig-param">stft_enc</em>, <em class="sig-param">angles=None</em>, <em class="sig-param">istft_dec=None</em>, <em class="sig-param">n_iter=6</em>, <em class="sig-param">momentum=0.9</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/filterbanks/griffin_lim.html#griffin_lim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.filterbanks.griffin_lim.griffin_lim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates matching phase from magnitude spectogram using the
+‘fast’ Griffin Lim algorithm [1].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mag_specgram</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+016b80c ))"><em>torch.Tensor</em></a>) – (any, dim, ension, freq, frames) as
+returned by <cite>Encoder(STFTFB)</cite>, the magnitude spectrogram to be
+inverted.</p></li>
+<li><p><strong>stft_enc</strong> (<a class="reference internal" href="../filterbanks.html#asteroid.filterbanks.Encoder" title="asteroid.filterbanks.Encoder"><em>Encoder</em></a><em>[</em><a class="reference internal" href="asteroid.filterbanks.html#asteroid.filterbanks.STFTFB" title="asteroid.filterbanks.STFTFB"><em>STFTFB</em></a><em>]</em>) – The <cite>Encoder(STFTFB())</cite> object that was
+used to compute the input <cite>mag_spec</cite>.</p></li>
+<li><p><strong>angles</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em> or </em><em>Tensor</em>) – Angles to use to initialize the algorithm.
+If None (default), angles are init with uniform ditribution.</p></li>
+<li><p><strong>istft_dec</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em> or </em><a class="reference internal" href="../filterbanks.html#asteroid.filterbanks.Decoder" title="asteroid.filterbanks.Decoder"><em>Decoder</em></a><em>[</em><a class="reference internal" href="asteroid.filterbanks.html#asteroid.filterbanks.STFTFB" title="asteroid.filterbanks.STFTFB"><em>STFTFB</em></a><em>]</em>) – Optional Decoder to use to get
+back to the time domain. If None (default), a perfect
+reconstruction Decoder is built from <cite>stft_enc</cite>.</p></li>
+<li><p><strong>n_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of griffin-lim iterations to run.</p></li>
+<li><p><strong>momentum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – The momentum of fast Griffin-Lim. Original
+Griffin-Lim is obtained for momentum=0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>torch.Tensor</em> – estimated waveforms of shape (any, dim, ension, time).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">Encoder</span><span class="p">(</span><span class="n">STFTFB</span><span class="p">(</span><span class="n">n_filters</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">128</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wav</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spec</span> <span class="o">=</span> <span class="n">stft</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">masked_spec</span> <span class="o">=</span> <span class="n">spec</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn_like</span><span class="p">(</span><span class="n">spec</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mag</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">take_mag</span><span class="p">(</span><span class="n">masked_spec</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">est_wav</span> <span class="o">=</span> <span class="n">griffin_lim</span><span class="p">(</span><span class="n">mag</span><span class="p">,</span> <span class="n">stft</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<p>[1] Perraudin et al. “A fast Griffin-Lim algorithm,” WASPAA 2013.
+[2] D. W. Griffin and J. S. Lim:  “Signal estimation from modified
+short-time Fourier transform,” ASSP 1984.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="asteroid.filterbanks.griffin_lim.misi">
+<code class="sig-prename descclassname">asteroid.filterbanks.griffin_lim.</code><code class="sig-name descname">misi</code><span class="sig-paren">(</span><em class="sig-param">mixture_wav</em>, <em class="sig-param">mag_specgrams</em>, <em class="sig-param">stft_enc</em>, <em class="sig-param">angles=None</em>, <em class="sig-param">istft_dec=None</em>, <em class="sig-param">n_iter=6</em>, <em class="sig-param">momentum=0.0</em>, <em class="sig-param">src_weights=None</em>, <em class="sig-param">dim=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asteroid/filterbanks/griffin_lim.html#misi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#asteroid.filterbanks.griffin_lim.misi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jointly estimates matching phase from magnitude spectograms using the
+Multiple Input Spectrogram Inversion (MISI) algorithm [1].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mixture_wav</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+016b80c ))"><em>torch.Tensor</em></a>) – (batch, time)</p></li>
+<li><p><strong>mag_specgrams</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+016b80c ))"><em>torch.Tensor</em></a>) – (batch, n_src, freq, frames) as
+returned by <cite>Encoder(STFTFB)</cite>, the magnitude spectrograms to be
+jointly inverted using MISI (modified or not).</p></li>
+<li><p><strong>stft_enc</strong> (<a class="reference internal" href="../filterbanks.html#asteroid.filterbanks.Encoder" title="asteroid.filterbanks.Encoder"><em>Encoder</em></a><em>[</em><a class="reference internal" href="asteroid.filterbanks.html#asteroid.filterbanks.STFTFB" title="asteroid.filterbanks.STFTFB"><em>STFTFB</em></a><em>]</em>) – The <cite>Encoder(STFTFB())</cite> object that was
+used to compute the input <cite>mag_spec</cite>.</p></li>
+<li><p><strong>angles</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em> or </em><em>Tensor</em>) – Angles to use to initialize the algorithm.
+If None (default), angles are init with uniform ditribution.</p></li>
+<li><p><strong>istft_dec</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em> or </em><a class="reference internal" href="../filterbanks.html#asteroid.filterbanks.Decoder" title="asteroid.filterbanks.Decoder"><em>Decoder</em></a><em>[</em><a class="reference internal" href="asteroid.filterbanks.html#asteroid.filterbanks.STFTFB" title="asteroid.filterbanks.STFTFB"><em>STFTFB</em></a><em>]</em>) – Optional Decoder to use to get
+back to the time domain. If None (default), a perfect
+reconstruction Decoder is built from <cite>stft_enc</cite>.</p></li>
+<li><p><strong>n_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of MISI iterations to run.</p></li>
+<li><p><strong>momentum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Momentum on updates (this argument comes from
+GriffinLim). Defaults to 0 as it was never proposed anywhere.</p></li>
+<li><p><strong>src_weights</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em> or </em><a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.7.0a0+016b80c ))"><em>torch.Tensor</em></a>) – Consistency weight for each source.
+Shape needs to be broadcastable to <cite>istft_dec(mag_specgrams)</cite>.
+We make sure that the weights sum up to 1 along dim <cite>dim</cite>.
+If <cite>src_weights</cite> is None, compute them based on relative power.</p></li>
+<li><p><strong>dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Axis which contains the sources in <cite>mag_specgrams</cite>.
+Used for consistency constraint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>torch.Tensor</em> – estimated waveforms of shape (batch, n_src, time).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">Encoder</span><span class="p">(</span><span class="n">STFTFB</span><span class="p">(</span><span class="n">n_filters</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">128</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wav</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">specs</span> <span class="o">=</span> <span class="n">stft</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">masked_specs</span> <span class="o">=</span> <span class="n">specs</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn_like</span><span class="p">(</span><span class="n">specs</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mag</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">take_mag</span><span class="p">(</span><span class="n">masked_specs</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">est_wav</span> <span class="o">=</span> <span class="n">misi</span><span class="p">(</span><span class="n">wav</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">mag</span><span class="p">,</span> <span class="n">stft</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<p>[1] Gunawan and Sen, “Iterative Phase Estimation for the Synthesis of
+Separated Sources From Single-Channel Mixtures,” in IEEE Signal
+Processing Letters, 2010.
+[2] Wang, LeRoux et al. “End-to-End Speech Separation with Unfolded
+Iterative Phase Reconstruction.” Interspeech 2018 (2018)</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Oncoming
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
